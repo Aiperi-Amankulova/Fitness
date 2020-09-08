@@ -12,7 +12,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
+        buildConfigField "String", "API_MAP","\"${api_map}\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -37,4 +37,6 @@ dependencies {
      //Библеотека для карты
     implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:8.6.5'
 
+    //Google material
+    implementation 'com.google.android.material:material:1.2.1'
 }

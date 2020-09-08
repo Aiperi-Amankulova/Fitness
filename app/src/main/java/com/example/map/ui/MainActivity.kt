@@ -1,6 +1,7 @@
-package com.example.map
+package com.example.map.ui
 
 import android.os.Bundle
+import com.example.map.R
 
 class MainActivity : MapActivity() {
 

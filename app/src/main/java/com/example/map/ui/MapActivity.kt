@@ -39,7 +39,7 @@ abstract class MapActivity : AppCompatActivity() {
 
         mapView?.getMapAsync {
             map = it
-            it.setStyle(Style.TRAFFIC_NIGHT) {
+            it.setStyle(Style.TRAFFIC_DAY) {
                 if (PermissionUtils.requestLocationPermission(this))
                     showUserLocation()
             }
@@ -68,23 +68,23 @@ abstract class MapActivity : AppCompatActivity() {
                     .build()
             )
 
-//            locationComponent?.isLocationComponentEnabled = true
-//            locationComponent?.cameraMode = CameraMode.TRACKING
-//
-//            locationComponent?.renderMode = RenderMode.COMPASS
-//
-//            val location = locationComponent?.lastKnownLocation
-//
-//            val latLng = LatLng(location?.latitude ?: 0.0, location?.longitude ?: 0.0)
-//
-//            val cm = CameraPosition.Builder()
-//                .target(latLng)
-//                .zoom(17.0)
-//                .build()
-//
-//            map?.animateCamera(
-//                CameraUpdateFactory.newCameraPosition(cm), 30000
-//            )
+            locationComponent?.isLocationComponentEnabled = true
+            locationComponent?.cameraMode = CameraMode.TRACKING
+
+            locationComponent?.renderMode = RenderMode.COMPASS
+
+            val location = locationComponent?.lastKnownLocation
+
+            val latLng = LatLng(location?.latitude ?: 0.0, location?.longitude ?: 0.0)
+
+            val cm = CameraPosition.Builder()
+                .target(latLng)
+                .zoom(17.0)
+                .build()
+
+            map?.animateCamera(
+                CameraUpdateFactory.newCameraPosition(cm), 30000
+            )
         }
     }
     override fun onStart() {

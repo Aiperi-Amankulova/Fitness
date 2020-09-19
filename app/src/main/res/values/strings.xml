@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">map</string>
+    <string name="app_name">Fitness</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
 </resources>

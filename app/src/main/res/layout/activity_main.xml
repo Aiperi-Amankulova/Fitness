@@ -13,26 +13,50 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/btnStart"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:text="@string/start"
-        android:background="@drawable/backgroud_btn"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="70dp"
-        android:layout_marginRight="5dp"/>
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="200dp"
+        android:autofillHints="Dark"
+        android:elevation="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_width="40dp"
+        android:layout_height="30dp"/>
+
+    <TextView
+        android:id="@+id/TextTV"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <Button
         android:id="@+id/btnStop"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/stop"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/backgroud_btn"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/fab"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="wrap_content"
+        android:text="@string/start"
+        android:layout_height="wrap_content"
+        android:background="@drawable/backgroud_btn"
+        app:layout_constraintBottom_toTopOf="@id/btnStop"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="5dp"/>
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="10dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

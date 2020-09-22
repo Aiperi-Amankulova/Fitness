@@ -1,4 +1,4 @@
-package com.example.map
+package com.example.map.ui.utils
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -20,7 +20,6 @@ object PermissionUtils {
 
         return false
     }
-
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun checkLocationPermission(activity: AppCompatActivity) =

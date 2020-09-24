@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.example.map.R
-import com.example.map.ui.data.PreferenceHelper
-import com.example.map.ui.onBoarding.OnBoardingActivity
+import com.example.map.data.PreferenceHelper
+import com.example.map.onBoarding.OnBoardingActivity
 
 class SpActivity  : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,12 +14,12 @@ class SpActivity  : AppCompatActivity() {
         setContentView(R.layout.activity_sp)
         Handler().postDelayed({
             selectActivity()
-        },3000)
+        },4000)
 
     }
 
     private fun selectActivity(){
-        if (PreferenceHelper.getIsFirtstLaunch()){
+        if (PreferenceHelper.getIsSecondLaunch()){
             startActivity(Intent(applicationContext, OnBoardingActivity:: class.java))
             finish()
         }

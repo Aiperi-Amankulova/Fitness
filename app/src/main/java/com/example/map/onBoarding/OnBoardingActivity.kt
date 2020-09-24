@@ -1,4 +1,4 @@
-package com.example.map.ui.onBoarding
+package com.example.map.onBoarding
 
 import android.content.Intent
 import android.os.Bundle
@@ -30,7 +30,7 @@ class OnBoardingActivity : AppCompatActivity() {
             ) {}
 
             override fun onPageSelected(position: Int) {
-                if (checktoPage(position)){
+                if (checkToPage(position)){
                     Btngo.text = "Go to Map"
                 } else {
                     Btngo.text = "Next"
@@ -38,7 +38,7 @@ class OnBoardingActivity : AppCompatActivity() {
             }
         })
         Btngo.setOnClickListener {
-            if (checktoPage(OnviewPage.currentItem)) {
+            if (checkToPage(OnviewPage.currentItem)) {
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             } else {
@@ -47,14 +47,14 @@ class OnBoardingActivity : AppCompatActivity() {
         }
     }
 
-    private fun checktoPage(position : Int) = position == list.size - 1
+    private fun checkToPage(position : Int) = position == list.size - 1
 
     private fun setupViewpager() {
         val adapter = OnBoardingAdapter(supportFragmentManager)
         OnviewPage.adapter = adapter
-        list.add(OnBoardingFragment.getInstance(DataOnBoarding(R.drawable.sport2,getString(R.string.next),"")))
-        list.add(OnBoardingFragment.getInstance(DataOnBoarding(R.drawable.ic_2329916, getString(R.string.next), "")))
-        list.add(OnBoardingFragment.getInstance(DataOnBoarding(R.drawable.ic_2329916, getString(R.string.next), "")))
+        list.add(OnBoardingFragment.getInstance(DataOnBoarding(R.drawable.sport2,getString(R.string.monitor),"")))
+        list.add(OnBoardingFragment.getInstance(DataOnBoarding(R.drawable.ic_2329916, getString(R.string.blood), "")))
+        list.add(OnBoardingFragment.getInstance(DataOnBoarding(R.drawable.ic_2329916, getString(R.string.life), "")))
         adapter.update(list)
         OnTabLT.setupWithViewPager(OnviewPage)
     }

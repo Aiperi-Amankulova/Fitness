@@ -1,9 +1,10 @@
-package com.example.map.ui.utils
-
+package com.example.map.utils
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 import android.util.Log
+import com.example.map.data.NotificationHelper
+import kotlinx.coroutines.*
 
 class ForegroundService: Service() {
 
@@ -22,7 +23,7 @@ class ForegroundService: Service() {
             startForeground(1, NotificationHelper.createNotification(applicationContext))
             test()
         }
-        return Service.START_REDELIVER_INTENT
+        return START_REDELIVER_INTENT
     }
 
     private fun test(){
@@ -44,6 +45,5 @@ class ForegroundService: Service() {
     companion object{
         const val STOP_SERVICE_ACTION = "STOP_SERVICE_ACTION"
     }
-
 
 }

@@ -1,4 +1,4 @@
-package com.example.map.ui.data
+package com.example.map.data
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -11,8 +11,8 @@ object PreferenceHelper {
     fun  initPreference(context: Context){
         preference = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
     }
-    fun setIsFirtstLaunch(){
+    fun setIsFirstLaunch(){
         preference?.edit()?.putBoolean(IS_FIRST_LAUNCH, false)?.apply()
     }
-    fun getIsFirtstLaunch() =  preference?.getBoolean(IS_FIRST_LAUNCH,true) ?:true
+    fun getIsSecondLaunch() =  preference?.getBoolean(IS_FIRST_LAUNCH,true) ?:true
 }

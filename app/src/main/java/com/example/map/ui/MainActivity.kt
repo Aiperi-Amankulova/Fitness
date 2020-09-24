@@ -1,19 +1,49 @@
 package com.example.map.ui
 
-import android.os.Build
+import android.content.Intent
 import android.os.Bundle
-import androidx.annotation.RequiresApi
+import android.util.Log
+import android.widget.Toast
 import com.example.map.R
+import com.example.map.base.BaseMapActivity
+import com.example.map.utils.ForegroundService
+import com.mapbox.mapboxsdk.maps.Style
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : MapActivity() {
+class MainActivity : BaseMapActivity() {
 
-    override  fun getResId() = R.layout.activity_main
-    override  fun getMapView() = R.id.mapView
+    override fun getResId() = R.layout.activity_main
+    override fun getMapViewId() = R.id.mapView
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupListeners()
+        stopForeground()
+    }
+
+    private fun setupListeners() {
+        fab.setOnClickListener {
+            map?.setStyle(Style.SATELLITE_STREETS)
+        }
+        btnStart.setOnClickListener {
+            startForegroundService()
+        }
+        btnStop.setOnClickListener {
+            stopForeground()
+        }
+    }
+
+    private fun stopForeground(){
+        val intent = Intent(this, ForegroundService::class.java)
+        // intent.putExtra("knlfm;ql", "hdksalfn")
+        stopService(intent)
+    }
+
+    private fun startForegroundService(){
+        val intent = Intent(this, ForegroundService::class.java)
+        intent.putExtra("scnlk", "kjvklsd")
+        startService(intent)
     }
 
 }

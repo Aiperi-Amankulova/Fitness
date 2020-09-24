@@ -1,4 +1,4 @@
-package com.example.map.ui.onBoarding
+package com.example.map.onBoarding
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

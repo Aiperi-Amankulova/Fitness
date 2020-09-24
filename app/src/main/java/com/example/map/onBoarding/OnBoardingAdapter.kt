@@ -1,4 +1,4 @@
-package com.example.map.ui.onBoarding
+package com.example.map.onBoarding
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

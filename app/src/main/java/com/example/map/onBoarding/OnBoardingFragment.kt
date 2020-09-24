@@ -1,4 +1,4 @@
-package com.example.map.ui.onBoarding
+package com.example.map.onBoarding
 
 import android.os.Bundle
 import android.view.LayoutInflater

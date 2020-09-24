@@ -53,7 +53,7 @@ class OnBoardingActivity : AppCompatActivity() {
         val adapter = OnBoardingAdapter(supportFragmentManager)
         OnviewPage.adapter = adapter
         list.add(OnBoardingFragment.getInstance(DataOnBoarding(R.drawable.sport2,getString(R.string.monitor),"")))
-        list.add(OnBoardingFragment.getInstance(DataOnBoarding(R.drawable.ic_2329916, getString(R.string.blood), "")))
+        list.add(OnBoardingFragment.getInstance(DataOnBoarding(R.drawable.ic_gym, getString(R.string.blood), "")))
         list.add(OnBoardingFragment.getInstance(DataOnBoarding(R.drawable.ic_2329916, getString(R.string.life), "")))
         adapter.update(list)
         OnTabLT.setupWithViewPager(OnviewPage)

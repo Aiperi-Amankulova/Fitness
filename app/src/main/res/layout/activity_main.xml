@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -42,7 +43,7 @@
         android:layout_height="wrap_content"
         android:text="@string/stop"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/backgroud_btn"
+        android:background="@drawable/background_btn"
         app:layout_constraintBottom_toTopOf="@+id/fab"
         android:layout_marginBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -52,7 +53,7 @@
         android:layout_width="wrap_content"
         android:text="@string/start"
         android:layout_height="wrap_content"
-        android:background="@drawable/backgroud_btn"
+        android:background="@drawable/background_btn"
         app:layout_constraintBottom_toTopOf="@id/btnStop"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="8dp"

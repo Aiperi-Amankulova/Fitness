@@ -1,34 +1,34 @@
- {
+{
   "project_info": {
-    "project_number": "939944245754",
-    "firebase_url": "https://fintess-t.firebaseio.com",
-    "project_id": "fintess-t",
-    "storage_bucket": "fintess-t.appspot.com"
+    "project_number": "514603348728",
+    "firebase_url": "https://fitness-s.firebaseio.com",
+    "project_id": "fitness-s",
+    "storage_bucket": "fitness-s.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:939944245754:android:c473165b5913d829b5cc43",
+        "mobilesdk_app_id": "1:514603348728:android:0f611b1d34d2182801c10d",
         "android_client_info": {
-          "package_name": "pk.eyJ1IjoiYWlwZXJpIiwiYSI6ImNrZXRxbXdqcDJqbWMzM284bWpwN3hmNjcifQ.uD_FHZeEblps6bonnJR1sA"
+          "package_name": "com.example.map"
         }
       },
       "oauth_client": [
         {
-          "client_id": "939944245754-m5l862sn76d36i5qpa07221s9e8tlvhs.apps.googleusercontent.com",
+          "client_id": "514603348728-33uo15amglmu89c7uqt9rih1f1mi03h3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC0LzkVdPeebMoBFc7Tk8YmqoRmXkyqecw"
+          "current_key": "AIzaSyDcK2PrkMgWBQnqPrWLlDHyj6Xd4yln9SU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "939944245754-m5l862sn76d36i5qpa07221s9e8tlvhs.apps.googleusercontent.com",
+              "client_id": "514603348728-33uo15amglmu89c7uqt9rih1f1mi03h3.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

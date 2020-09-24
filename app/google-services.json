@@ -1,0 +1,40 @@
+ {
+  "project_info": {
+    "project_number": "939944245754",
+    "firebase_url": "https://fintess-t.firebaseio.com",
+    "project_id": "fintess-t",
+    "storage_bucket": "fintess-t.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939944245754:android:c473165b5913d829b5cc43",
+        "android_client_info": {
+          "package_name": "pk.eyJ1IjoiYWlwZXJpIiwiYSI6ImNrZXRxbXdqcDJqbWMzM284bWpwN3hmNjcifQ.uD_FHZeEblps6bonnJR1sA"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939944245754-m5l862sn76d36i5qpa07221s9e8tlvhs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0LzkVdPeebMoBFc7Tk8YmqoRmXkyqecw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939944245754-m5l862sn76d36i5qpa07221s9e8tlvhs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -36,7 +36,6 @@ class MainActivity : BaseMapActivity() {
 
     private fun stopForeground(){
         val intent = Intent(this, ForegroundService::class.java)
-        // intent.putExtra("knlfm;ql", "hdksalfn")
         stopService(intent)
     }
 

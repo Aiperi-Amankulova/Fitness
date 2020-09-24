@@ -49,7 +49,7 @@ object MapUtil {
             }
 
             override fun onFailure(call: Call<DirectionsResponse>, t: Throwable) {
-                Log.d("GDGDGDg","gfdfgdfgdfg")
+                Log.d("hbjbjk","gfdfgdfgdfg")
             }
 
         })
@@ -78,11 +78,10 @@ object MapUtil {
             .withIconImage(image)
     }
     fun getCameraPosition(latLng: LatLng, zoom: Double = 17.0): CameraUpdate =
-        CameraUpdateFactory.newCameraPosition(
-            CameraPosition.Builder()
-                .target(latLng)
-                .zoom(zoom)
-                .build())
+        CameraUpdateFactory.newCameraPosition(CameraPosition.Builder()
+            .target(latLng)
+            .zoom(zoom)
+            .build())
 
 
     fun  locationToLatLng(location:Location?) =  LatLng(location?.latitude?:0.0 , location?.longitude?:0.0)

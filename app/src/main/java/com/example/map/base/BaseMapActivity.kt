@@ -19,10 +19,12 @@ import com.mapbox.mapboxsdk.plugins.annotation.Symbol
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource
 
-abstract class BaseMapActivity:MapActivity() {
+abstract class BaseMapActivity: SupportMapActivity() {
 
-    protected var symbolManager: SymbolManager? = null
+
+    protected var symbolManager : SymbolManager? = null
     private var symbol: Symbol? = null
+
 
 
     override fun onMapLoaded(mapBoxMap: MapboxMap, style: Style) {
@@ -31,30 +33,29 @@ abstract class BaseMapActivity:MapActivity() {
         initSource(style)
         initLayer(style)
         mapView?.let {
-            symbolManager = SymbolManager(it, mapBoxMap, style)
-        }
+            symbolManager = SymbolManager(it, mapBoxMap,style) }
         if (PermissionUtils.requestLocationPermission(this))
-            showUserLocation()
+            showUserLocation() //   //3) геолакац
     }
 
     private fun initLayer(style: Style) {
-        val layer = MapUtil.createLayer(
+        val layer =  MapUtil.createLayer(
             layerName = LINE_LAYER,
             sourceName = LINE_SOURCE
         )
         style.addLayer(layer)
     }
 
-    private fun initSource(style: Style) {
+    private fun initSource(style: Style) {  // кординаты
         style.addSource(MapUtil.getSource(LINE_SOURCE))
 
     }
 
-    protected fun getDirections(latLng: LatLng) {
+    protected fun getDirections(latLng: LatLng) {  // по клик на карту расчитыва путь из точки А в точку Б
         val location = map?.locationComponent?.lastKnownLocation
-        MapUtil.getDirections(location, latLng) { data ->
+        MapUtil.getDirections(location,latLng){ data ->
             val source = map?.style?.getSourceAs<GeoJsonSource>(LINE_SOURCE)
-            source.let {
+            source.let {geoJsonsource ->
                 data?.geometry()?.let {
                     source?.setGeoJson(
                         LineString.fromPolyline(
@@ -78,34 +79,30 @@ abstract class BaseMapActivity:MapActivity() {
     }
 
     private fun loadImages(style: Style) {
-        MapUtil.addImage(
-            style,
-            MARKER_IMAGE,
-            resources.getDrawable(R.drawable.ic_2329916)
-        )
+        MapUtil.addImage(style,MARKER_IMAGE, resources.getDrawable(R.drawable.ic_launcher_foreground) )
     }
 
     protected fun addMarker(latLng: LatLng) {
-        symbol?.let { symbolManager?.delete(it) }
+        symbol?.let {   symbolManager?.delete(it) }
         val symbolOptions = MapUtil.createSymbol(latLng, MARKER_IMAGE)
         symbol = symbolManager?.create(symbolOptions)
     }
 
-    override fun onRequestPermissionsResult(
+    override fun onRequestPermissionsResult(  //возвращ результ с диалога на разрешен геолакац  2)
         requestCode: Int,
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == PermissionUtils.LOCATION_REQUEST_CODE) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        if (requestCode == PermissionUtils.LOCATION_REQUEST_CODE){
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED){
                 showUserLocation()
             }
         }
     }
 
     @SuppressLint("MissingPermission", "Range")
-    private fun showUserLocation() {
+    private fun showUserLocation(){   //3) геолакац
         map?.style?.let {
             val locationComponents = map?.locationComponent
             locationComponents?.activateLocationComponent(
@@ -115,29 +112,31 @@ abstract class BaseMapActivity:MapActivity() {
             locationComponents?.isLocationComponentEnabled = true
             locationComponents?.cameraMode = CameraMode.TRACKING
             locationComponents?.renderMode = RenderMode.COMPASS
-            val location = locationComponents?.lastKnownLocation
+            val location =  locationComponents?.lastKnownLocation
             val latlng = MapUtil.locationToLatLng(location)
             animateCamera(latlng)
         }
     }
 
 
-    private fun animateCamera(latLng: LatLng, zoom: Double = CAMERA_ZOOM) {
+    private fun animateCamera(latLng: LatLng, zoom: Double = CAMERA_ZOOM){
 
         Handler(Looper.getMainLooper()).postDelayed({
             map?.animateCamera(
                 MapUtil.getCameraPosition(latLng, zoom),
                 DURATION_CAMERA
             )
-        }, 6000)
+        },6000)
     }
 
-    companion object {
+    companion object{
         private const val MARKER_IMAGE = "MARKER_IMAGE"
         private const val LINE_SOURCE = "LINE_SOURCE"
         private const val DURATION_CAMERA = 3000
         private const val LINE_LAYER = "LINE_LAYER"
         private const val CAMERA_ZOOM = 17.0
     }
+
+
 }
 

@@ -8,7 +8,7 @@ import com.mapbox.mapboxsdk.maps.MapView
 import com.mapbox.mapboxsdk.maps.MapboxMap
 import com.mapbox.mapboxsdk.maps.Style
 
-abstract class MapActivity : AppCompatActivity() {
+abstract class SupportMapActivity : AppCompatActivity() {
 
     abstract fun getResId(): Int
     abstract fun getMapViewId(): Int
@@ -29,7 +29,6 @@ abstract class MapActivity : AppCompatActivity() {
                 onMapLoaded(mapBoxMap, style)
             }
         }
-
     }
 
     override fun onStart() {
@@ -62,4 +61,5 @@ abstract class MapActivity : AppCompatActivity() {
         super.onDestroy()
         mapView?.onDestroy()
     }
+
 }

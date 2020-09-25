@@ -25,11 +25,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
-object MapUtil {
+object MapUtils {
 
     fun getDirections(
-        origin: Location?, destination: LatLng,
+        origin: Location? , destination: LatLng,
         result: ((item: DirectionsRoute?)-> Unit)? = null
     ){
         val  client = MapboxDirections.builder()
@@ -49,7 +48,7 @@ object MapUtil {
             }
 
             override fun onFailure(call: Call<DirectionsResponse>, t: Throwable) {
-                Log.d("hbjbjk","gfdfgdfgdfg")
+                Log.d("GDGDGDg","gfdfgdfgdfg")
             }
 
         })
@@ -73,15 +72,15 @@ object MapUtil {
         return layer
     }
     fun createSymbol(latLng: LatLng, image : String): SymbolOptions? {
-        return SymbolOptions()
+       return SymbolOptions()
             .withLatLng(latLng)
             .withIconImage(image)
     }
     fun getCameraPosition(latLng: LatLng, zoom: Double = 17.0): CameraUpdate =
         CameraUpdateFactory.newCameraPosition(CameraPosition.Builder()
-            .target(latLng)
-            .zoom(zoom)
-            .build())
+        .target(latLng)
+        .zoom(zoom)
+        .build())
 
 
     fun  locationToLatLng(location:Location?) =  LatLng(location?.latitude?:0.0 , location?.longitude?:0.0)
@@ -89,7 +88,7 @@ object MapUtil {
 
     fun addImage(style: Style, name: String, imageDrawable: Drawable) {
         style.addImageAsync(
-            name,
+           name,
             BitmapUtils.getBitmapFromDrawable(imageDrawable)!!,
             true
         )
@@ -97,5 +96,5 @@ object MapUtil {
     }
 
     fun getSource( sourceName: String) = GeoJsonSource(sourceName)
-    private fun getLayer( layerName : String, sourceName: String ) = LineLayer(layerName , sourceName)
+   private fun getLayer( layerName : String, sourceName: String ) = LineLayer(layerName , sourceName)
 }

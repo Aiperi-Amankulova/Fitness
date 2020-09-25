@@ -2,8 +2,6 @@ package com.example.map.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import com.example.map.R
 import com.example.map.base.BaseMapActivity
 import com.example.map.utils.ForegroundService

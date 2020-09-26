@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.location.Location
 import android.util.Log
-import com.example.map.BuildConfig
 import com.mapbox.api.directions.v5.DirectionsCriteria
 import com.mapbox.api.directions.v5.MapboxDirections
 import com.mapbox.api.directions.v5.models.DirectionsResponse
@@ -32,7 +31,7 @@ object MapUtils {
         result: ((item: DirectionsRoute?)-> Unit)? = null
     ){
         val  client = MapboxDirections.builder()
-            .accessToken(BuildConfig.API_MAP)
+            .accessToken(com.example.map.BuildConfig.API_MAP)
             .origin(Point.fromLngLat(origin?.longitude?:0.0, origin?.latitude?:0.0))
             .destination(Point.fromLngLat(destination.longitude,destination.latitude))
             .profile(DirectionsCriteria.PROFILE_WALKING)
@@ -48,7 +47,7 @@ object MapUtils {
             }
 
             override fun onFailure(call: Call<DirectionsResponse>, t: Throwable) {
-                Log.d("GDGDGDg","gfdfgdfgdfg")
+                Log.d("nbkb","gfdfgdfgdfg")
             }
 
         })
